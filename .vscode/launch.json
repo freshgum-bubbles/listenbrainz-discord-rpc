@@ -1,0 +1,15 @@
+{
+    "configurations": [{
+        "type": "node",
+        "request": "launch",
+        "name": "Launch with ts-node",
+        "runtimeArgs": [
+            "--loader",
+            "ts-node/esm"
+        ],
+        "args": [
+            "${workspaceFolder}/src/main.ts"
+        ],
+        "env": { "TS_NODE_PROJECT": "tsconfig.json", "NODE_PATH": "./src/" }
+    }],
+}
