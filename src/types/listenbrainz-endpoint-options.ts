@@ -1,7 +1,7 @@
 import { ListenBrainzEndpointTemplates } from "../constants/listenbrainz-endpoints.const.ts";
 
-type EndpointTemplateOrNull<T extends keyof ListenBrainzEndpointTemplates, U = ListenBrainzEndpointTemplates[T]> =
-    U extends { } ? undefined : U;
+export type EndpointTemplateOrNull<T extends keyof ListenBrainzEndpointTemplates, U = ListenBrainzEndpointTemplates[T]> =
+    U extends never ? undefined : U;
 
 export interface ListenBrainzEndpointOptions<T extends keyof ListenBrainzEndpointTemplates> {
     /**

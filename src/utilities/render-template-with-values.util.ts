@@ -3,13 +3,14 @@ import {
 	ListenBrainzEndpoint,
 	ListenBrainzEndpointTemplates,
 } from '../constants/listenbrainz-endpoints.const.ts';
+import { EndpointTemplateOrNull } from '../types/listenbrainz-endpoint-options.ts';
 
 /**
  * Interpolate values in a template provided as a {@link ListenBrainzEndpoint} member.
  */
 export function renderTemplateWithValues<
 	T extends keyof ListenBrainzEndpointTemplates
->(endpoint: T, values: ListenBrainzEndpointTemplates[T]): string;
+>(endpoint: T, values: EndpointTemplateOrNull<T>): string;
 
 /**
  * Interpolate values in a template with those specified in the values parameter.
