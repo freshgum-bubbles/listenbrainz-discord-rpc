@@ -52,7 +52,12 @@ export class DiscordRPCClientService {
 		const { appID, appScopes } = this;
 
 		const client = this.createUnauthenticatedClient();
-		return client.login({ clientId: appID, scopes: appScopes });
+
+		/**
+		 * Note: we're not passing in scopes for now as we don't seem to be passing in the right ones.
+		 * As a result, the Discord refuses the connection.
+		 */
+		return client.login({ clientId: appID });
 	}
 
 	/**
