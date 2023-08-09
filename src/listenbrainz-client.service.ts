@@ -8,6 +8,7 @@ import {
 } from './constants/listenbrainz-endpoints.const.ts';
 import { ListenBrainzEndpointOptions } from './types/listenbrainz-endpoint-options.ts';
 import { RequestInit, Headers } from 'node-fetch';
+import { renderTemplateWithValues } from './utilities/render-template-with-values.util.ts';
 
 @Service([LISTENBRAINZ_HOST, LISTENBRAINZ_TOKEN, NetworkService])
 export class ListenBrainzClientService {
@@ -47,7 +48,9 @@ export class ListenBrainzClientService {
 		options?: ListenBrainzEndpointOptions<T>,
 		baseInit?: RequestInit & { headers?: Headers }
 	) {
-		const url = this.createURLFromListenBrainzEndpoint(endpoint);
+		const templateValues = options?.values;
+		const renderedURL = templateValues ? renderTemplateWithValues<T>(endpoint, templateValues!) : endpoint;
+		const url = this.createURLFromListenBrainzEndpoint(renderedURL);
 
 		/**
 		 * Ensure we have a valid `RequestInit` object which we can mutate with `options`.
