@@ -21,6 +21,6 @@ export enum ListenBrainzEndpoint {
 }
 
 export interface ListenBrainzEndpointTemplates {
-    [ListenBrainzEndpoint.ValidateToken]: { };
+    [ListenBrainzEndpoint.ValidateToken]: never;
     [ListenBrainzEndpoint.UserPlayingNow]: { user_name: string };
 }
