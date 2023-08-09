@@ -20,7 +20,7 @@ export class CacheService {
         const { additional_info: rAdditionalInfo } = currentTrack;
 
         return (
-            lAdditionalInfo.track_mbid === rAdditionalInfo.track_mbid ||
+            lAdditionalInfo.track_mbid === rAdditionalInfo.track_mbid &&
             lAdditionalInfo.release_mbid === rAdditionalInfo.release_mbid
         );
     }
