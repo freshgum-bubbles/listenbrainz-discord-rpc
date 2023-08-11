@@ -21,7 +21,9 @@ export class CacheService {
 
         return (
             lAdditionalInfo.track_mbid === rAdditionalInfo.track_mbid &&
-            lAdditionalInfo.release_mbid === rAdditionalInfo.release_mbid
+            lAdditionalInfo.release_mbid === rAdditionalInfo.release_mbid &&
+            lAdditionalInfo.artist_mbids === rAdditionalInfo.artist_mbids &&
+            lAdditionalInfo.tracknumber === rAdditionalInfo.tracknumber
         );
     }
 
